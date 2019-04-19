@@ -1,0 +1,25 @@
+server:
+# 指定一个端口
+  port: 8092
+
+spring:
+  application:
+#   指定一个服务名
+    name: ribbon-center
+
+eureka:
+  client:
+    service-url:
+#     指定注册中心的地址
+      defaultZone: http://10.0.1.65:8081/eureka/
+
+#配置算法
+#被调用服务的名称
+mail-center:
+  ribbon:
+#   配置算法的名称，在这里我用的是随机的算法
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
+
+
