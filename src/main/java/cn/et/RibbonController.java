@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import sun.misc.BASE64Encoder;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -68,7 +69,7 @@ public class RibbonController {
         return sb.toString();
     }
 
-    @RequestMapping("test3")
+    @RequestMapping("RibbonTest")
     @HystrixCommand(fallbackMethod = "error")
     public String test3(String name){
         String forObject = restTemplate.getForObject("http://mail-center/test2/{name}", String.class,name);
